@@ -2,9 +2,9 @@
   "name": "hello",
   "version": "0.0.1",
   "description": "This program says hello",
-  "main": "hello",
+  "main": "app.js",
   "scripts": {
-    "test": "hello"
+    "test": ""
   },
   "keywords": [
     "hello"
