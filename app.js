@@ -60,7 +60,7 @@ function StartHangman()
 		else if(TargetWord.charAt(i) == "?")
 			CurrentKnowledge += "?";
 		else
-			CurrentKnowledge += "_";
+			CurrentKnowledge += "~";
 	}
 	
 	return "You've started a new game of hangman!  Type a letter to guess it.  Type 'end game' to end the game.";
@@ -78,19 +78,19 @@ function GuessTime(input)
 		LettersGuessed += " " + input;
 		if(CurrentKnowledge == TargetWord)
 		{	State = 0;
-			return("You guessed " + CurrentKnowledge + " correctly!  Congratulations!");
+			return("You guessed " + CurrentKnowledge + " correctly!  Congratulations!\n\nType 'hangman' to started a new game.");
 		}
 		else if(NumberFound > 1)
-			return("There were " + NumberFound + " " + input + "'s in the phrase.  \n" + CurrentKnowledge + "\n Guesses: " + LettersGuessed);
+			return("There were " + NumberFound + " " + input + "'s in the phrase.  \n\n" + CurrentKnowledge + "\n\n Guesses: " + LettersGuessed);
 		else if(NumberFound > 0)
-			return("There was 1 " + input + " in the phrase.  \n" + CurrentKnowledge + "\n Letters Guessed: " + LettersGuessed);
+			return("There was 1 " + input + " in the phrase.  \n\n" + CurrentKnowledge + "\n\n Letters Guessed: " + LettersGuessed);
 		else
 		{	Guesses--;
 			if(Guesses > 0)
-				return(input + " does not exist in the phrase.  You have " + Guesses + " Guesses left.\n Guesses: " + LettersGuessed);
+				return(input + " does not exist in the phrase.  " + CurrentKnowledge + "\n\n You have " + Guesses + " Guesses left.\n\n Guesses: " + LettersGuessed);
 			else
 			{	State = 0;
-				return("You lose; you have have run out of guesses.\n Type 'hangman' to started a new game.")
+				return("You lose; you have have run out of guesses.\n\n Type 'hangman' to started a new game.")
 			}
 		}
 	}
